@@ -26,5 +26,15 @@ public class MoveLeft : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 30;
+        }
+        else
+        {
+            speed = 17;
+        }
+
     }
 }

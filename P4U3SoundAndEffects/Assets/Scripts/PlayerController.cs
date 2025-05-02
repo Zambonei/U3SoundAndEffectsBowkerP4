@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier;
     public bool isOnGround = true;
     public bool gameOver;
-    public bool canDoubleJump;
+    public bool doubleJump;
+    public float Playerspeed = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //single jump if
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -39,24 +39,26 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
-            canDoubleJump = true;
-
-
+            doubleJump = true;
         }
-
-        //double jump if
-        if (Input.GetKeyDown(KeyCode.Space) && playerRb.velocity.y > 0f && canDoubleJump && !gameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && playerRb.velocity.y > 0f && doubleJump && !gameOver)
         {
-            canDoubleJump = false;
-
+            doubleJump = false;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-
             playerAnim.SetTrigger("Jump_trig");
             playerAudio.PlayOneShot(jumpSound, 1);
-
-
+            
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerAnim.speed = 1.3f;
+        }
+        else
+        {
+            playerAnim.speed = 1.2f;
+        }
+
 
     }
 

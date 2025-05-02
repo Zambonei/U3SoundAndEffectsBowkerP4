@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059dea5d33eded74f80b3c98eaabff9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticle: {fileID: 192429783}
+  explosionParticle: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
   dirtParticle: {fileID: 2125586654}
   jumpSound: {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
   crashSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
@@ -147,7 +147,8 @@ MonoBehaviour:
   gravityModifier: 3
   isOnGround: 1
   gameOver: 0
-  canDoubleJump: 0
+  doubleJump: 0
+  Playerspeed: 1
 --- !u!65 &127387338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -297,6 +298,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &127387344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127387336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ae71e97ac56894da55aef79e373c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,11 +404,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!198 &192429783 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
-  m_PrefabInstance: {fileID: 1485247574}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &192429784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303195482613169217, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
@@ -818,7 +826,7 @@ MonoBehaviour:
   - {fileID: 4186604531428355040, guid: d8fea4fb06ea0754c913ebc91ff06bab, type: 3}
   - {fileID: 2348262952787335447, guid: f8bc18bea6c72cc4587598bfd4ae6843, type: 3}
   - {fileID: 7389136004252280429, guid: e13b1bfc2f68a4347afd659f52b05fca, type: 3}
-  startDelay: 2
+  startDelay: 1
   repeatRate: 1.7
 --- !u!4 &954558613
 Transform:
@@ -974,6 +982,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
       insertIndex: -1
       addedObject: {fileID: 127387342}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 127387344}
   m_SourcePrefab: {fileID: 100100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
 --- !u!1 &2014335011
 GameObject:
